@@ -1,0 +1,26 @@
+{% extends 'html/base.html' %}
+{% block title %}Delete Leave{% endblock %}
+{% block content %}
+<div class="container mt-4">
+    <div class="card col-md-5 mx-auto shadow-lg">
+        <div class="card-body">
+            <h4>Delete Leaves</h4>
+            <h6>Are you sure want to delete Leave ?</h6>
+            <h6>Leave Type {{a.leavetype}} Start Date {{a.startdate}}</h6>
+            <h6>End Date {{a.enddate}} Applied on {{a.appldate}}</h6>
+            <h6>Reason {{a.reason}}</h6>
+            <form method="POST">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col">
+                        <a href="{% url 'lvs' %}" class="btn btn-outline-info form-control">NO</a>
+                    </div>
+                    <div class="col">
+                        <input type="submit" value="Yes confirm" class="btn btn-outline-success form-control">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
